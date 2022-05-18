@@ -9,16 +9,16 @@ import Button from '@mui/material/Button';
 const NavBar = () => {
     
     return (
-        <AppBar  position="static" >
+        <AppBar position="static"  >
             
-            <Toolbar >
+            <Toolbar className='banner'>
             <div className="container-logo">
-                <img src='./favicon.ico' alt='logo'/>
+                <img src='./logo.png' alt='logo'/>
             </div>
             <ul className='container-menus'>
-                <li><a>Home</a></li>
-                <li><a>Products</a></li>
-                <li><a>Store</a></li>
+                <li><Button  color="inherit">Home</Button></li>
+                <li><Button  color="inherit">Productos</Button></li>
+                <li><Button  color="inherit">Info</Button></li>
             </ul>
             <Button color="inherit">Login</Button>
             </Toolbar>

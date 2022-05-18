@@ -1,14 +1,20 @@
+
+.banner{
+    background-color: white;
+}
 .container-logo {
     width: 100px;
-    border-radius: 100px; 
+    
 }
 .container-logo img{
     width: 100%;
+    
 }
 .container-menus {
     width: 80%;
     display: flex;
     flex-direction: row;
+    color: black;
 
 }
 .container-menus li{
