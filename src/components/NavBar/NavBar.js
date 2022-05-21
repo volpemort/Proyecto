@@ -1,9 +1,9 @@
+import React from 'react';
 import './NavBar.css'
+import CartWid from '../Cart/CartWidget.js';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-
-
 
 
 const NavBar = () => {
@@ -20,7 +20,7 @@ const NavBar = () => {
                 <li><Button  color="inherit">Productos</Button></li>
                 <li><Button  color="inherit">Info</Button></li>
             </ul>
-            <Button color="inherit">Login</Button>
+            <CartWid></CartWid>
             </Toolbar>
         </AppBar>
     )
