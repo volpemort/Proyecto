@@ -3,19 +3,14 @@ import "../Cards/CardItem.css"
 import  Button from "@mui/material/Button"
 import { useState } from "react"
 
-const ItemCount = (props) => {
+const ItemCount = ({stocks , onAdd}) => {
     const [count, setCount] = useState(0)
     const [stock, setStock] = useState(0)
 
-    const onAdd = () =>{
-        console.log("Estas Comprando"+ " " + count + " " +"unidades")
-        
-    }
-
     const addCount = () =>{
-        console.log (props)
+        console.log (stocks)
 
-        if (stock < props.stock){
+        if (stock < stocks){
             setCount(count+1)
             setStock (stock+1)
         }
@@ -32,7 +27,8 @@ const ItemCount = (props) => {
                         <Button onClick={addCount}>+</Button>
                         <p>{count}</p>
                         <Button  onClick={minusCount}>-</Button>
-                        <Button onClick={onAdd} >Comprar</Button>
+                        <Button  onClick={() => onAdd(count)}>comprar</Button>
+                        
         </div>
     )
 }
