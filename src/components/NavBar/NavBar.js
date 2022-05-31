@@ -4,6 +4,7 @@ import CartWid from '../Cart/CartWidget.js';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -13,12 +14,12 @@ const NavBar = () => {
             
             <Toolbar className='banner'>
             <div className="container-logo">
-                <img src='./logo.png' alt='logo'/>
+                <img src='../logo.png' alt='logo'/>
             </div>
             <ul className='container-menus'>
-                <li><Button  color="inherit">Home</Button></li>
-                <li><Button  color="inherit">Productos</Button></li>
-                <li><Button  color="inherit">Info</Button></li>
+                <li><Button  color="inherit"><Link  className='links' to="/">Home</Link></Button></li>
+                <li><Button  color="inherit"><Link  className='links' to="/products">Productos</Link></Button></li>
+                <li><Button  color="inherit"><Link  className='links' to="/info">Info</Link></Button></li>
             </ul>
             <CartWid></CartWid>
             </Toolbar>

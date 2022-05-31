@@ -2,9 +2,18 @@
 .cardStyle{
     display: flex;
     flex-direction: column;
+    height: 300px;
+    justify-content: center;
+    
 }
-
+.imgBox{
+    height: 50%;
+}
 .cardStyle img{
+    width: 100%;
+    
+}
+.cardBox{
     width: 100%;
     
 }
@@ -15,4 +24,8 @@
     justify-content: center;
     border-top: solid 1px gray;
     border-bottom: solid 1px gray;
+}
+.linksItem{
+    color: white;
+    text-decoration: none;
 }
