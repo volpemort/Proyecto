@@ -22,7 +22,7 @@ const CardItem = ({title, image, price, stock, id}) => {
             <CardContent >
                 <div className="cardStyle" key={id}>
                     <div className="imgBox">
-                        <img src={`./${image}`}/>
+                        <img src={`/${image}`}/>
                     </div>
                     <div className="cardBox">
                         <p>{title}</p>
@@ -30,7 +30,7 @@ const CardItem = ({title, image, price, stock, id}) => {
                     </div>
                     <ItemCount stocks={stock} onAdd={onAdd}></ItemCount>
                     
-                    <Button variant="contained"><Link  className='linksItem' to={`/products/${id}`}>Detalle</Link></Button>
+                    <Button variant="contained" ><Link  className='linksItem' to={`/products/${id}`}>Detalle</Link></Button>
                     
                 </div>
             </CardContent>
