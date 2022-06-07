@@ -1,6 +1,11 @@
 import ItemCount from "../Count/ItemCount"
+import { useState } from "react"
+import { Button } from "@mui/material"
+import { Link } from "react-router-dom"
 
 const CardDetail = ({data}) =>{
+    const [showButton, setShowButton] = useState(false)
+
     return(
         <div className="detailBox">
             <div className="">
@@ -10,7 +15,11 @@ const CardDetail = ({data}) =>{
                 <h1>{data.title} </h1>
                 <p> Precio $ {data.price}</p>
                 <span>Stock {data.stock}</span>
-                <ItemCount ></ItemCount>
+                
+                {!showButton ?
+                <ItemCount stocks={data.stock} setShowButton={setShowButton}></ItemCount>
+                :
+                <Button> <Link to='/cart'>Finalizar Compra</Link></Button>}
             </div>
         </div>
     )

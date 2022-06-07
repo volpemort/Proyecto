@@ -8,11 +8,12 @@ import { Link } from "react-router-dom"
 
 
 
-const CardItem = ({title, image, price, stock, id}) => {
+const CardItem = ({title, image, price, stock, id, initial}) => {
 
     const onAdd = ( count) =>{
         
         console.log(count)
+        
         
     }
 
@@ -28,7 +29,7 @@ const CardItem = ({title, image, price, stock, id}) => {
                         <p>{title}</p>
                         <span>${price}</span>
                     </div>
-                    <ItemCount stocks={stock} onAdd={onAdd}></ItemCount>
+                    <ItemCount stocks={stock} onAdd={onAdd} ></ItemCount>
                     
                     <Button variant="contained" ><Link  className='linksItem' to={`/products/${id}`}>Detalle</Link></Button>
                     

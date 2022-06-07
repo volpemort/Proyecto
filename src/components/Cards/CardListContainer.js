@@ -32,11 +32,11 @@ const CardListcontainer = () => {
         <Container>
           <h1> Productos en oferta</h1>
           <Grid container spacing ={2} margin ={4}>
-            {products.map(({title, price, image, stock, id }) =>{
+            {products.map(({title, price, image, stock, id, initial }) =>{
 
               return(
               <Grid item md={3} >
-                <CardItem title={title} price={price} image = {image} stock={stock} id={id} />
+                <CardItem title={title} price={price} image = {image} stock={stock} id={id} initial={initial} />
               </Grid>
              ) 
             })

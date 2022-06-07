@@ -34,9 +34,8 @@ const NavBar = () => {
                         aria-controls={open ? 'basic-menu' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
-                        onClick={handleClick}
-                    >
-                        Productos
+                        onClick={handleClick}>
+                        Catalogo
                     </Button>
                     <Menu
                         id="basic-menu"
