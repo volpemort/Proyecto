@@ -3,10 +3,14 @@ import "../Cards/CardItem.css"
 import  Button from "@mui/material/Button"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import CartContext from "../../Context/CartContext"
 
-const ItemCount = ({stocks , onAdd, setShowButton}) => {
+
+const ItemCount = ({stocks , onAdd}) => {
     const [count, setCount] = useState(1)
     const [stock, setStock] = useState(1)
+    const { addProductToCart } = useContext (CartContext)
     
 
     const addCount = () =>{
@@ -31,7 +35,10 @@ const ItemCount = ({stocks , onAdd, setShowButton}) => {
                         <Button onClick={addCount}>+</Button>
                         <p>{count}</p>
                         <Button  onClick={minusCount}>-</Button>
-                        <Button  onClick={() => setShowButton(true)}>Agregar Prooducto</Button>
+                        <Button  onClick={() => onAdd(count) } 
+                        >
+                            Agregar Prooducto
+                        </Button>
                         
         </div>
         
