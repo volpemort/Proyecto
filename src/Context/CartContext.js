@@ -6,9 +6,14 @@ const CartProvider = ({children}) =>{
 
     const [cartListItems, setCartListItems] = useState([])
 
+
     const addProductToCart = (product) =>{
-        setCartListItems([product])
-        console.log("se agrego:", product)
+        let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
+        if(!isInCart) {
+            console.log("se agrego el producto:", product)
+            return setCartListItems(cartListItems => [...cartListItems, product])
+        }
+        console.log("El producto ya se encuentra en el carrito")
     }
 
     const data ={

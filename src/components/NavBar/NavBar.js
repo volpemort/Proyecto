@@ -1,6 +1,6 @@
 import React from 'react';
 import './NavBar.css'
-import CartWid from '../Cart/CartWidget.js';
+import CartWidget from '../Cart/CartWidget.js';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
@@ -54,7 +54,7 @@ const NavBar = () => {
                     </Menu> </li>
                 
             </ul>
-            <CartWid></CartWid>
+            <CartWidget></CartWidget>
             </Toolbar>
         </AppBar>
     )

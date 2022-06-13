@@ -1,0 +1,30 @@
+.container-item-list-cart{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: small;
+    
+}
+.item-cart-prod{
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+    border-bottom: 0.5px solid gray;
+}
+.cart-prod__image{
+    width: 50%;
+}
+.cart-prod__image img{
+    width: 100%;
+}
+
+.cart-prod__action{
+    width: 40px;
+    height: 40px;
+    margin-left: 30px;
+
+}
+

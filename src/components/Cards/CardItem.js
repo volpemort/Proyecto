@@ -27,9 +27,12 @@ const CardItem = ({title, image, price, stock, id, initial}) => {
                         <span>${price}</span>
                     </div>
                     
-                    
+                    <div className="buttonBox">
+                        
                     <Button variant="contained" ><Link  className='linksItem' to={`/products/${id}`}>Detalle</Link></Button>
-                    
+                        
+                    <Button variant="contained" onClick={()=> addProductToCart({title, image, price, stock, id})} >Agregar Carrito</Button>
+                    </div>
                 </div>
             </CardContent>
             

@@ -29,3 +29,11 @@
     color: white;
     text-decoration: none;
 }
+.buttonBox{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: space-around;
+}
+

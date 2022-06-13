@@ -2,16 +2,18 @@ import ItemCount from "../Count/ItemCount"
 import { useState } from "react"
 import { Button } from "@mui/material"
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import CartContext from "../../Context/CartContext"
 
 const CardDetail = ({data}) =>{
     const [showButton, setShowButton] = useState(false)
-
-    const onAdd = ( count) =>{
+    const { addProductToCart } = useContext (CartContext)
+    
+    const onAdd = (count) =>{
         
         console.log(count)
         setShowButton(true)
-        
-        
+        addProductToCart(data)
     }
 
     return(
