@@ -6,7 +6,6 @@ const CartProvider = ({children}) =>{
 
     const [cartListItems, setCartListItems] = useState([])
 
-
     const addProductToCart = (product) =>{
         let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
         if(!isInCart) {
@@ -16,9 +15,14 @@ const CartProvider = ({children}) =>{
         console.log("El producto ya se encuentra en el carrito")
     }
 
+    const deleteProduct =(idValue) =>{
+        return setCartListItems( cartListItems.filter(item => !item.id === idValue.id))
+    }
+
     const data ={
         cartListItems,
-        addProductToCart
+        addProductToCart,
+        deleteProduct
     }
     return(
         <CartContext.Provider value={data}>
