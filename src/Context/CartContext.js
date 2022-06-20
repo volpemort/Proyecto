@@ -12,12 +12,13 @@ const CartProvider = ({children}) =>{
             console.log("se agrego el producto:", product)
             setTotalPrice(totalPrice + product.price)
             return setCartListItems(cartListItems => [...cartListItems, product])
+        
         }
         console.log("El producto ya se encuentra en el carrito")
     }
 
     const deleteProduct =(idValue) =>{
-        return setCartListItems( cartListItems.filter(item => !item.id === idValue.id))
+        return setCartListItems( cartListItems.filter(item => !item.id === idValue))
     }
 
     const data ={

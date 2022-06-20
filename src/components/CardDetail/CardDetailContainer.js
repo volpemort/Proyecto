@@ -4,7 +4,8 @@ import { useEffect, useState} from "react"
 import { useParams } from "react-router";
 import productos from "../../Data/ProductsMock"
 import CardDetail from "./CardDetail";
-
+import fireDataB from "../../Data/FireBaseConfig"
+import {doc, getDoc } from "firebase/firestore" 
 
 
 const CardDetailContainer = () => {
@@ -12,30 +13,28 @@ const CardDetailContainer = () => {
     const {id} = useParams()
     const [product, setProduct] = useState({})
   
-    
-    // const getItem = () =>{
-    //   return new Promise ((resolve, reject) =>{
-    //     // setTimeout(() => {
-    //       resolve(producto)
-    //     // }, 2000);
-        
-    //   })
-    // }
+  const getProduct =async () =>{
+    const docRef = doc(fireDataB, "productos", id)
+    const docSnapShot = await getDoc(docRef)
+    let productData = docSnapShot.data()
+    productData.id = docSnapShot.id
+    return productData
+  }
+
+
   
     useEffect (() => {
+      getProduct()
+      .then((response) =>{
+        console.log("Respuesta product:", response)
+        setProduct (response)
+      })
       
-    setProduct( productos.find((product) =>{
-      return product.id == id
-    }))
-      // getItem()
-      // .then((response) =>{
-      //       console.log("Respuesta promesa:", response)
-      //       setProduct (response)
-      //     })
           
-    },[])
+    },[id])
     
-  
+
+   
       return(
           <div>
             <div>

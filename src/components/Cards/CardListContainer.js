@@ -2,26 +2,33 @@ import React from "react";
 import CardItem from "../Cards/CardItem.js";
 import { Container, Grid } from "@mui/material";
 import { useEffect, useState} from "react"
-import productos from "../../Data/ProductsMock"
 
+
+import fireDataB from "../../Data/FireBaseConfig"
+import {collection, getDocs } from "firebase/firestore" 
 
 const CardListcontainer = () => {
   
   const [products, setProducts] = useState([])
 
-  const getProducts = () =>{
-    return new Promise ((resolve, reject) =>{
-      setTimeout(() => {
-        resolve(productos)
-      }, 2000);
-      
+  const getProducts = async () =>{
+    const productSnapshot = await getDocs( collection(fireDataB, "productos"));
+    console.log(productSnapshot)
+    const productList = productSnapshot.docs.map ((doc) =>{
+      console.log("respuesta doc", doc.data())
+      const productData = doc.data()
+      productData.id = doc.id 
+        return productData
     })
+    return productList
   }
+
+
 
   useEffect (() => {
     getProducts()
     .then((response) =>{
-          console.log("Respuesta promesa:", response)
+          console.log("Respuesta product:", response)
           setProducts (response)
         })
         
