@@ -1,5 +1,6 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Container } from "@mui/material";
+import { Container, Button } from "@mui/material";
+import {Link} from "react-router-dom";
 import "./Cart.css";
 import { useState, useContext } from "react";
 import CartContext from "../../Context/CartContext";
@@ -41,7 +42,13 @@ const Cart = () => {
       <div>
         <p>Precio Total</p>
         <span>${cartTotal}</span>
+        <Button> Finalziar Compra</Button>
       </div>
+      <div >
+        <Link to = "/"><Button> Seguir Comprando </Button></Link>
+        
+      </div>
+
     </Container>
   );
 };
