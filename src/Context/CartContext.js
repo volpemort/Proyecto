@@ -1,38 +1,59 @@
-import { createContext , useState } from "react";
+import { createContext, useMemo, useState } from "react";
 
-const CartContext = createContext ()
+const CartContext = createContext();
 
-const CartProvider = ({children}) =>{
+const CartProvider = ({ children }) => {
+  const [cartListItems, setCartListItems] = useState([]);
 
-    const [cartListItems, setCartListItems] = useState([])
-    const [totalPrice, setTotalPrice] = useState(0)
-    const addProductToCart = (product) =>{
-        let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
-        if(!isInCart) {
-            console.log("se agrego el producto:", product)
-            setTotalPrice(totalPrice + product.price)
-            return setCartListItems(cartListItems => [...cartListItems, product])
-        
-        }
-        console.log("El producto ya se encuentra en el carrito")
+  const addProductToCart = (product, quantity = 1) => {
+    let isInCart = cartListItems.some((cartItem) => cartItem.id === product.id);
+    if (!isInCart) {
+      //   console.log("se agrego el producto:", product);
+      setCartListItems((cartListItems) => [
+        ...cartListItems,
+        { ...product, quantity: quantity },
+      ]);
+    } else {
+      //   console.log("El producto ya se encuentra en el carrito");
+      setCartListItems((cartListItems) =>
+        cartListItems.map((item) => {
+          if (item.id === product.id) {
+            return { ...item, quantity: item.quantity + quantity };
+          }
+          return item;
+        })
+      );
     }
+  };
 
-    const deleteProduct =(idValue) =>{
-        return setCartListItems( cartListItems.filter(item => !item.id === idValue))
-    }
+  const deleteProduct = (idValue) => {
+    return setCartListItems(
+      cartListItems.filter((item) => item.id !== idValue)
+    );
+  };
 
-    const data ={
-        cartListItems,
-        totalPrice,
-        addProductToCart,
-        deleteProduct
-    }
-    return(
-        <CartContext.Provider value={data}>
-            {children}
-        </CartContext.Provider>
-    )
-}
+  const resetCart = () => {
+    setCartListItems([]);
+  };
 
-export { CartProvider }
-export default CartContext
+  const cartTotal = useMemo(
+    () =>
+      cartListItems.reduce(
+        (suma, product) => product.price * product.quantity + suma,
+        0
+      ),
+    [cartListItems]
+  );
+
+  const data = {
+    cartListItems,
+    addProductToCart,
+    deleteProduct,
+    resetCart,
+    cartTotal,
+  };
+  return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
+};
+
+export { CartProvider };
+export default CartContext;
