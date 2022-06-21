@@ -27,7 +27,7 @@ const NavBar = () => {
             </div>
             <ul className='container-menus'>
                 <li><Button  color="inherit"><Link  className='links' to="/">Home</Link></Button></li>
-
+                <li><Button  color="inherit"><Link  className='links' to="/cart"> Ver Carrito</Link></Button></li>
                 <li>
                     <Button
                         id="basic-button"
