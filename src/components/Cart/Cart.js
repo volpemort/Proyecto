@@ -18,6 +18,12 @@ const Cart = () => {
           <h2>Quitar</h2>
         </div>
       </div>
+      {cartListItems.length === 0 && (
+            <>
+              <p>No hay productos agregados al carrito</p>
+              <Link to="/">Empezar a comprar</Link>
+            </>
+          )}
       {cartListItems.map((item) => {
         return (
           <div className="item-cart-prod" key={item.id}>
@@ -39,7 +45,7 @@ const Cart = () => {
           </div>
         );
       })}
-      <div>
+      <div className="shopBox">
         <p>Precio Total</p>
         <span>${cartTotal}</span>
         <Button> Finalziar Compra</Button>
