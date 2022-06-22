@@ -30,6 +30,7 @@ const Cart = () => {
         quantity:item.quantity
       }
     }),
+    date:Date(),
     total:cartTotal,
   })
 
