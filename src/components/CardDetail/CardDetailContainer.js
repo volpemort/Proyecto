@@ -18,7 +18,6 @@ const CardDetailContainer = () => {
 
   useEffect(() => {
     getProduct().then((response) => {
-      console.log("Respuesta product:", response);
       setProduct(response);
     });
   }, [id]);

@@ -4,7 +4,9 @@ import { useState, useContext } from "react";
 import Menu from "@mui/material/Menu";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CartContext from "../../Context/CartContext";
+import {Button} from "@mui/material";
 import { Link } from "react-router-dom";
+import { Badge } from "@mui/material";
 
 const CartWidget = () => {
   const { cartListItems, deleteProduct, resetCart } = useContext(CartContext);
@@ -20,14 +22,17 @@ const CartWidget = () => {
   };
 
   return (
-    <div className="cart-container-icon">
-      <ShoppingCartIcon
-        color={"primary"}
-        aria-controls={open ? "basic-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
-      />
+    <div>
+      <Badge badgeContent={cartListItems.length} color="success">
+        <ShoppingCartIcon
+          fontSize="large"
+          color={"primary"}
+          aria-controls={open ? "basic-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+          onClick={handleClick}
+        />
+      </Badge>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -39,10 +44,10 @@ const CartWidget = () => {
       >
         <div className="container-item-list-cart">
           {cartListItems.length === 0 && (
-            <>
+            <div className="emptyCart">
               <p>No hay productos agregados al carrito</p>
-              <Link to="/">Empezar a comprar</Link>
-            </>
+              <Button variant="contained" className="btn-custom"><Link className="linksItem" to="/">Empezar a comprar</Link></Button>
+            </div>
           )}
           {cartListItems.map((item) => {
             return (

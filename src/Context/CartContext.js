@@ -8,13 +8,11 @@ const CartProvider = ({ children }) => {
   const addProductToCart = (product, quantity = 1) => {
     let isInCart = cartListItems.some((cartItem) => cartItem.id === product.id);
     if (!isInCart) {
-      //   console.log("se agrego el producto:", product);
       setCartListItems((cartListItems) => [
         ...cartListItems,
         { ...product, quantity: quantity },
       ]);
     } else {
-      //   console.log("El producto ya se encuentra en el carrito");
       setCartListItems((cartListItems) =>
         cartListItems.map((item) => {
           if (item.id === product.id) {

@@ -18,7 +18,7 @@ const CardItem = ({
       <CardContent>
         <div className="cardStyle" key={id}>
           <div className="imgBox">
-            <img src={`/${image}`} />
+            <img src={`/${image}`} alt="alt" />
           </div>
           <div className="cardBox">
             <p>{title}</p>

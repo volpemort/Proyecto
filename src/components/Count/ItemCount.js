@@ -8,8 +8,6 @@ const ItemCount = ({ stocks, onAdd }) => {
   const [stock, setStock] = useState(1);
 
   const addCount = () => {
-    console.log(stocks);
-
     if (stock < stocks) {
       setCount(count + 1);
       setStock(stock + 1);

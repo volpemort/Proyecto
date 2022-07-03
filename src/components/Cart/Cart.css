@@ -2,11 +2,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-bottom: 1px solid grey ;
+    
 }
 .cartMenu div{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
 }
 
 .cartMenu h2{
@@ -18,46 +21,82 @@
 }
 .cart-image img {
     width: 100%;
+    
 }
 
 .cart-info{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.cart-info div{
+    width: 65%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+}
+.cart-info p{
+    max-width: 120px ;
     
 }
+.cart-info span{
+    margin-right: 100px;
+    }
+
+
+
 .shopBox{
-    margin-top: 50px;
-    border-top: 2px solid black;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    
 }
+.shop-btn{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.shop-btn button{
+    margin: 10px;
+}
+
 form.form-contact {
     display: flex;
     flex-direction: column;
     padding: 50px;
     
-  }
+}
   
-  form.form-contact > div {
+form.form-contact > div {
     margin-bottom: 15px;
     
-  }
+}
   
-  form.form-contact button {
+form.form-contact button {
     margin: 10px;
     background: black;
-      border-radius: 40px;
-      text-transform: none;
-      color: white;
-      font-family: 'Lato';
-      padding: 10px 20px;
-      font-size: 14px;cursor: pointer;}
+    border-radius: 40px;
+    text-transform: none;
+    color: white;
+    font-family: 'Lato';
+    padding: 10px 20px;
+    font-size: 14px;cursor: pointer;}
 
-      form.form-contact input {
+form.form-contact input {
         margin: 15px;
-      }
+}
+
+.emptyCart {
+        display: flex;
+        height: 400px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        }
+    .emptyCart p {
+            color: rgb(14, 76, 245);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-indent: 30px;
+            text-transform: uppercase;
+            }
+                
+            

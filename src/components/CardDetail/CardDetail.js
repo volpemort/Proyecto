@@ -19,7 +19,7 @@ const CardDetail = ({ product }) => {
       <div className="">
         <img src={`../${product.image}`} alt="" />
       </div>
-      <div className="">
+      <div className="countBox">
         <h1>{product.title} </h1>
         <p> Precio $ {product.price}</p>
         <span>Stock {product.stock}</span>
@@ -31,9 +31,8 @@ const CardDetail = ({ product }) => {
             setShowButton={setShowButton}
           />
         ) : (
-          <Button>
-            {" "}
-            <Link to="/cart">Finalizar Compra</Link>
+          <Button className="btn-custom" variant="contained">
+            <Link className="links" to="/cart">Finalizar Compra</Link>
           </Button>
         )}
       </div>
