@@ -7,13 +7,34 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../../Context/CartContext";
 
+
 const CardItem = ({
   product,
   product: { title, image, price, stock, id, initial, quantity },
 }) => {
   const { addProductToCart } = useContext(CartContext);
 
+  const buttonDetail = {
+    fontSize: 17,
+    backgroundColor:"#FF7733",
+    '&:hover': {
+      backgroundColor: "#BC3F00",
+      
+      
+    }
+  }
+
+  const buttonShop = {
+    fontSize: 15,
+    backgroundColor:"black",
+    '&:hover': {
+      backgroundColor: "#322C2A",
+      
+      
+    }
+  }
   return (
+    
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <div className="cardStyle" key={id}>
@@ -26,14 +47,21 @@ const CardItem = ({
           </div>
 
           <div className="buttonBox">
-            <Button variant="contained">
-              <Link className="linksItem" to={`/products/${id}`}>
-                Detalle
-              </Link>
-            </Button>
+            <Link className="linksItem" to={`/products/${id}`}>
+              <Button 
+              variant="contained"
+              size="small"
+              sx={buttonDetail}
+              >
+                
+                  Detalle
+                
+              </Button>
+            </Link>
 
             <Button
               variant="contained"
+              sx={buttonShop}
               onClick={() => addProductToCart(product)}
             >
               Agregar Carrito
@@ -42,6 +70,7 @@ const CardItem = ({
         </div>
       </CardContent>
     </Card>
+    
   );
 };
 

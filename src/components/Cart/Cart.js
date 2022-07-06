@@ -135,9 +135,6 @@ const Cart = () => {
               value={formValue.name}
               onChange={handleChange}
               required
-              // ref= {register({
-              //   required : {value:true, message: "Nombre obligatorio"}
-              // })}
             />
             <TextField
               id="outlined-basic"
@@ -147,9 +144,6 @@ const Cart = () => {
               value={formValue.mail}
               onChange={handleChange}
               required
-              // ref= {register({
-              //   required : {value:true, message: "Mail obligatorio"}
-              // })}
             />
             <TextField
               id="outlined-basic"

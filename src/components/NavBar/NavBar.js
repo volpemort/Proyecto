@@ -29,16 +29,22 @@ const NavBar = () => {
         </div>
         <ul className="container-menus">
           <li>
-            <Button color="inherit">
+            <Button 
+            color="inherit"
+            size="small"
+            >
               <Link className="links" to="/">
                 Home
               </Link>
             </Button>
           </li>
           <li>
-            <Button color="inherit">
+            <Button 
+            color="inherit" 
+            size="small"
+            >
               <Link className="links" to="/cart">
-                {" "}
+                
                 Ver Carrito
               </Link>
             </Button>
@@ -51,6 +57,7 @@ const NavBar = () => {
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
+              size="small"
             >
               Catalogo
             </Button>

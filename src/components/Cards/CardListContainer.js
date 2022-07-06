@@ -1,6 +1,6 @@
 import React from "react";
 import CardItem from "../Cards/CardItem.js";
-import { Container, Grid, Backdrop, CircularProgress } from "@mui/material";
+import { Container, Grid, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getProducts } from "../../Data/utils.js";
 
